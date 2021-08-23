@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="3dayGit冲突的解决方式 A在自己的文件里面写了一些代码 A提交到了公共的项目里面 此时B也写了相同的代码 B也提交了 此时就会出现下图的问题    当B修改完冲突 如何解决 B：git add . B git commit -m ‘描述信息’ B:git push origin dev A:在A分支里面 git pull origin dev 重新上传 B:在B分支里面 git push o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/08/23/3day/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="3dayGit冲突的解决方式 A在自己的文件里面写了一些代码 A提交到了公共的项目里面 此时B也写了相同的代码 B也提交了 此时就会出现下图的问题    当B修改完冲突 如何解决 B：git add . B git commit -m ‘描述信息’ B:git push origin dev A:在A分支里面 git pull origin dev 重新上传 B:在B分支里面 git push o">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/jc4aQXJLetIMvHS.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/qIYOzbfg3sPprHN.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/FE4PRCq2irQY6OV.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/20/H8CZQfqxGckSPYj.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/image-20210820144549129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/image-20210820143624824.png">
+<meta property="article:published_time" content="2021-08-23T00:09:06.692Z">
+<meta property="article:modified_time" content="2021-08-23T00:26:31.896Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/men521521/onegit/img/jc4aQXJLetIMvHS.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-3day" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/23/3day/" class="article-date">
+  <time datetime="2021-08-23T00:09:06.692Z" itemprop="datePublished">2021-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="3day"><a href="#3day" class="headerlink" title="3day"></a>3day</h1><h1 id="Git冲突的解决方式"><a href="#Git冲突的解决方式" class="headerlink" title="Git冲突的解决方式"></a>Git冲突的解决方式</h1><ol>
+<li>A在自己的文件里面写了一些代码</li>
+<li>A提交到了公共的项目里面</li>
+<li>此时B也写了相同的代码</li>
+<li>B也提交了</li>
+<li>此时就会出现下图的问题</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/men521521/onegit/img/jc4aQXJLetIMvHS.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/men521521/onegit/img/qIYOzbfg3sPprHN.png" alt="img"></p>
+<p>当B修改完冲突</p>
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><ol>
+<li>B：git add .</li>
+<li>B git commit -m ‘描述信息’</li>
+<li>B:git push origin dev</li>
+<li>A:在A分支里面 git pull origin dev 重新上传</li>
+<li>B:在B分支里面 git push orgin dev 上传</li>
+</ol>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>第一步写完代码我们想要上传代码到项目里自己的分支里面需要三步骤</p>
+<p>git add .</p>
+<p>git commit -m ‘描述话语’</p>
+<p>git push origin zhm 将自己写完的代码放到项目里面自己的分支里</p>
+<p> 必须要在自己本地的zhm里面</p>
+<p>然后我们拉远程的代码push到自己的代码里面先查看一下</p>
+<p>git branch -av 查看项目里面所有的分支</p>
+<p><a target="_blank" rel="noopener" href="https://i.loli.net/2021/08/20/FE4PRCq2irQY6OV.png"><img src="https://cdn.jsdelivr.net/gh/men521521/onegit/img/FE4PRCq2irQY6OV.png" alt="img"></a></p>
+<p>然后我们在拉别人的分支</p>
+<p>再看我们当前是在自己的 <strong>zhm</strong> 上还是在 <strong>dev</strong> 如果不在自己的dev上我们利用指令</p>
+<p>git checkout dev 切换到自己的分支上去</p>
+<p>然后就可以拉取dev里面我们自己的代码以及别人的代码了</p>
+<p>git pull origin dev</p>
+<p>然后再切换回自己本地的分支zhm</p>
+<p>git checkout zhm</p>
+<p>然后把所有集合的代码拉到我们本地的代码里面进行合并</p>
+<p>git merge dev</p>
+<p>然后再放到我们自己的zhm里面</p>
+<p>git push origin zhm</p>
+<p>最后查看一下状态如果是以下的状态说明操作成功</p>
+<p><a target="_blank" rel="noopener" href="https://i.loli.net/2021/08/20/H8CZQfqxGckSPYj.png"><img src="https://i.loli.net/2021/08/20/H8CZQfqxGckSPYj.png" alt="img"></a></p>
+<h2 id="Axios-的二次封装"><a href="#Axios-的二次封装" class="headerlink" title="Axios 的二次封装"></a>Axios 的二次封装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#x27;axios&#x27;;</span><br><span class="line"></span><br><span class="line">// 创建了一个axios 实例</span><br><span class="line">let service = axios.create(&#123;</span><br><span class="line">  baseURL:&#x27;http://bb.shoujiduoduo.com/baby/bb.php&#x27;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 设置请求的拦截</span><br><span class="line">service.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">  // 设置请求头  token</span><br><span class="line">  config.headers = &#123;</span><br><span class="line">    token: &#x27;abc&#x27;</span><br><span class="line">  &#125;;</span><br><span class="line">  return config;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// /baby/bb.php?type=getvideos&amp;pagesize=30&amp;collectid=29</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default service;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/men521521/onegit/img/image-20210820144549129.png" alt="img"></p>
+<h2 id="项目的搭建"><a href="#项目的搭建" class="headerlink" title="项目的搭建"></a>项目的搭建</h2><ol>
+<li><p>.git 删掉 需要关联自己的仓库地址</p>
+</li>
+<li><p>.gitignore</p>
+</li>
+<li><p>搭建项目</p>
+<ol>
+<li><p>路由</p>
+</li>
+<li><p>请求</p>
+<p>公司的开发规范</p>
+<p>测试地址 : <a target="_blank" rel="noopener" href="http://118.89.234.135/">http://118.89.234.135</a></p>
+<p>线上地址 : <a target="_blank" rel="noopener" href="http://bb.shoujiduoduo.com/baby/bb.php">http://bb.shoujiduoduo.com/baby/bb.php</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axios.get(&#x27;所有地址&#x27;)</span><br><span class="line">axios.get(&#x27;所有地址&#x27;)</span><br><span class="line">axios.get(&#x27;所有地址&#x27;)</span><br><span class="line">axios.get(&#x27;所有地址&#x27;)</span><br></pre></td></tr></table></figure></li>
+<li><p>怎么处理:</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>如果遇到如下的错误 就是跨域出现的错误</p>
+<blockquote>
+<p>如果不允许跨域 :</p>
+<p>本地开发:</p>
+<p> 设置代理</p>
+<p>线上 :</p>
+<p> node做中间层</p>
+<p> nginx</p>
+<p>后端 :</p>
+<p> cors : 后端设置</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/men521521/onegit/img/image-20210820143624824.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/23/3day/" data-id="cksnwhlyl00011gu1cmlp1jvc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/20/2day/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/23/3day/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/20/2day/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/18/oneday/">one World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
